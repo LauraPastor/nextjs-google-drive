@@ -1,6 +1,6 @@
 import { CldImage } from "next-cloudinary";
 
-const ImageCard = ({ image }) => {
+const ImageCard = () => {
     return (
         <article className="card">
             <div className="title-container">
