@@ -46,7 +46,7 @@ const VideoCard = ({ asset }) => {
     return (
         <article className="card">
             <div className="title-container">
-                <h4><span className="emoji">▶</span>{""}</h4>
+                <h4><span className="emoji">▶</span>{display_name}</h4>
                 <h4>⫶</h4>
             </div>
             {isLoading && <p>Loading...</p>}
