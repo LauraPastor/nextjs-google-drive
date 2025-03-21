@@ -18,7 +18,6 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, [])
-  console.log(assets)
   const onHandleNewUpload = (asset) => {
     setAssets((prev) => [asset, ...prev]);
   }
@@ -33,7 +32,7 @@ const Home = () => {
       <Header />
       <div className='main-container'>
         <SideBar onHandleNewUpload={onHandleNewUpload} />
-        <Dashboard />
+        <Dashboard assets={assets} />
       </div>
     </>
   );
