@@ -5,9 +5,11 @@ import Dashboard from '@/components/Dashboard';
 import SideBar from '@/components/SideBar';
 const Home = () => {
   const [assets, setAssets] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const getData = async () => {
     try {
-      const data = await fetch(`/api/assets`)
+      const data = await fetch(`/api/assets?${searchTerm}`)
       const media = await data.json()
       setAssets(media)
     }
@@ -17,7 +19,7 @@ const Home = () => {
   }
   useEffect(() => {
     getData();
-  }, [])
+  }, [searchTerm])
   const onHandleNewUpload = (asset) => {
     setAssets((prev) => [asset, ...prev]);
   }
@@ -32,7 +34,7 @@ const Home = () => {
       <Header />
       <div className='main-container'>
         <SideBar onHandleNewUpload={onHandleNewUpload} />
-        <Dashboard assets={assets} />
+        <Dashboard assets={assets} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
     </>
   );

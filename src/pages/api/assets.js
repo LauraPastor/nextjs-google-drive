@@ -7,7 +7,9 @@ cloudinary.config({
 })
 
 const handler = async(req, res) => {
-    const data = await cloudinary.search.execute()
+    const url = req.url.split("?");
+    const searchTerm = url[1];
+    const data = await cloudinary.search.expression(searchTerm).execute()
     res.status(200).json(data.resources);
 }
 
