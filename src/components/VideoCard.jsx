@@ -53,7 +53,7 @@ const VideoCard = ({ asset }) => {
             <div className="video-container" style={{ visibility: isLoading ? "hidden" : "visible" }} >
                 <CldVideoPlayer
                     src={public_id}
-                    id={`${public_id}-${Math.random()}`}
+                    id={public_id}
                     height="300"
                     width="300"
                     alt={display_name}
